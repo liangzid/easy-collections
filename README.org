@@ -1,0 +1,61 @@
+#+title: easy-collections
+#+date: Thu Dec 23 11:20:13 2021
+#+author: Zi Liang
+#+email: liangzid@stu.xjtu.edu.cn
+#+latex_class: elegantpaper
+#+filetags: package:config:
+
+** What is easy-collections?
+ Easy collections is a light-weight emacs package that encourage you collect any fragmented important information in emacs (e.g. codes, paragraphs, outputs in terminal and any others) into a single file. It is light-weight, quick and no-interruptted.
+
+ It support:
+ + collect fragmented codes into a single file. After you select a region, you can save it to your collections; 
+ + back-tracking. You can go back the file that you make some contents collected.
+ + no-interruptted comments. When you are saving something, a minibuffer will prompt you give some comments, and after you input your comment and hit "enter", all things will done. There is no new poped buffer changed your window and no left buffer need to be closed.
+
+Here is a GIF to have you understande easy-collections. Assume I want to collect a function to my collected file, then I will do this:
+
+[[file:img/collections_forward.gif][forward]]
+
+After that, If I want to go back have a look orginal file, I will:
+
+[[file:img/collections_backward.gif][backward]]
+   
+** Scenario may you want to use it.
+I list some scenario i want to use it as follows:
+1. When I reading others code, I find a function useful for my future works, then I can collected it to my pre-setting file, and comment it. I can even go back to have other relative codes with the path;
+2. When I browse some documents, I want save some important concepts or usages.
+3. When I writing my own codes, I want to have a mark and left it for future works.
+** Install it and config it.
+
+   Following this prompts:
+
+   #+BEGIN_SRC emacs-lisp
+     ;; load this package
+     (load-file "path/of/easy-collections/")
+     (require 'easy-collections)
+     ;;; custom setting variables if you needed.
+     ;; setting your save path. default:"~/.emacs.d/collected/box.org"
+     (setq collected-save-path "your/file/path/for/collections/")
+     ;; setting your save format. default:
+     ;;--------------------------------------------------------------------------
+     ;; ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> COLLECTED TIME: </time>
+     ;; >> FROM BUFFER: </buffer>
+     ;; >> FROM PATH: </filepath>
+     ;; #+BEGIN_SRC </mode> 
+     ;; </region> 
+     ;; #+END_SRC 
+     ;; >>YOUR COMMENT: </comment>
+     ;; "
+     ;;--------------------------------------------------------------------------
+     (setq collected-format "YOUR/FORMAT/")
+     ;; setting your keybindings to quick running collected command.
+     (global-set-key (kbd "YOUR-KEY-BINGDING") 'collected-run)
+     ;; you can also running with "M-x collected-run"
+   #+END_SRC
+  
+** New idea and a bug report.
+
+   Please give me a issue, thanks.
+
+
