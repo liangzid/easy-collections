@@ -15,11 +15,11 @@
 
 Here is a GIF to have you understande easy-collections. Assume I want to collect a function to my collected file, then I will do this:
 
-[[file:img/collections_forward.gif][forward]]
+[[img/collections_forward.gif][forward]]
 
 After that, If I want to go back have a look orginal file, I will:
 
-[[file:img/collections_backward.gif][backward]]
+[[img/collections_backward.gif][backward]]
    
 ** Scenario may you want to use it.
 I list some scenario i want to use it as follows:
