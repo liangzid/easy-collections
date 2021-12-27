@@ -73,7 +73,20 @@
     major-mode))
 
 (defun progmode-p (major-mode-name)
+  " is current major mode is a prog mode? if true, return t, else return nil"
+  (let ((src-code-types
+	 '("emacs-lisp" "python" "C" "sh" "java" "js" "clojure" "C++" "css"
+            "calc" "asymptote" "dot" "gnuplot" "ledger" "lilypond" "mscgen"
+            "octave" "oz" "plantuml" "R" "sass" "screen" "sql" "awk" "ditaa"
+            "haskell" "latex" "lisp" "matlab" "ocaml" "org" "perl" "ruby"
+            "scheme" "sqlite"))
+	)
+    )
   nil)
+;; mode2prog
+
+
+
 
 (defun collected-run ()
  "When you select a region and execute this function, 
@@ -124,7 +137,7 @@
 		  (setq current-major-mode (get-buffer-mode (current-buffer)))
 		  (if (progmode-p current-major-mode)
 		      (setq text-return
-			    (s-replace "</mode>" (model2prog current-buffer-mode) text-return))
+			    (s-replace "</mode>" (mode2prog current-buffer-mode) text-return))
 		    (setq text-return
 			  (s-replace "</mode>" "" text-return))
 		      )
@@ -154,5 +167,13 @@
 	(message "no regions need to be collected."))
 
     )))
+
+(defun collect-default-open ()
+  "open default save file."
+  (find-file collected-save-path)
+  (message "default file open done. 0.0"))
+
+
+
 (provide 'easy-collections)
 ;;; init-collection.el ends here

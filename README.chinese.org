@@ -1,0 +1,60 @@
+#+title: easy-collections
+#+date: Mon Dec 27 10:29:56 2021
+#+author: Zi Liang
+#+email: liangzid@stu.xjtu.edu.cn
+#+latex_class: elegantpaper
+#+filetags: package:elisp:emacs
+
+
+** 什么是easy-collections?
+ Easy collections 是一个轻量级的emacs插件，该插件鼓励你从使用emacs的各个角落中（如一些代码片段、terminal的输出结果、阅读的一些文档，等等）收集碎片化的信息，同时尽量保证全过程快速、可追溯、并且不会打断当前的工作流。
+
+ 它支持以下功能：
+ + 将各种在使用emacs中出现的碎片信息收集到一个单个文件中。比如，你选择了一段文本，然后easy collection会通过添加一些元信息，将你所选择的结果进行保存；
+ + 回溯。当你整理你之前所存储的信息时，你可以通过之前保存时留下的路径回溯到你那时关注的文件；
+ + 无打断的评注。你可以在保存时添加一些评论，这些评论仅仅会通过minibuffer输入，不会打断你当前的工作流。
+
+下面是一个GIF演示。假如我在阅读别人的代码时，想收集一个函数，那么我会这么做：
+
+[[img/collections_forward.gif][forward]]
+
+在这之后，如果某一天我想回头去看这个代码，我可以这么做：
+
+[[img/collections_backward.gif][backward]]
+   
+** 可能的使用场景
+   我列出了几个可能的使用场景：
+1. 当我在阅读别人的代码时，可能有一些需要学习的用法供我收集；
+2. 当我在阅读文档时，我可能要收集一些特殊说明以备不测；
+3. 当我在写我自己的代码时，可能我没有时间去做单元测试，但是可以先标记一下；
+** 安装与配置的方法
+
+   请参考下面的代码：
+
+   #+BEGIN_SRC emacs-lisp
+     ;; load this package
+     (load-file "path/of/easy-collections/")
+     (require 'easy-collections)
+     ;;; custom setting variables if you needed.
+     ;; setting your save path. default:"~/.emacs.d/collected/box.org"
+     (setq collected-save-path "your/file/path/for/collections/")
+     ;; setting your save format. default:
+     ;;--------------------------------------------------------------------------
+     ;; ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> COLLECTED TIME: </time>
+     ;; >> FROM BUFFER: </buffer>
+     ;; >> FROM PATH: </filepath>
+     ;; #+BEGIN_SRC </mode> 
+     ;; </region> 
+     ;; #+END_SRC 
+     ;; >>YOUR COMMENT: </comment>
+     ;; "
+     ;;--------------------------------------------------------------------------
+     (setq collected-format "YOUR/FORMAT/")
+     ;; setting your keybindings to quick running collected command.
+     (global-set-key (kbd "YOUR-KEY-BINGDING") 'collected-run)
+     ;; you can also running with "M-x collected-run"
+   #+END_SRC
+  
+** 如果你有新的想法，或者该代码存在bug
+
+   请提出issue，谢谢！
